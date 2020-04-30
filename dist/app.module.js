@@ -12,6 +12,7 @@ const users_module_1 = require("./users/users.module");
 const books_module_1 = require("./books/books.module");
 const books_entity_1 = require("./books/books.entity");
 const users_entity_1 = require("./users/users.entity");
+const DB_URL = process.env.MONGODB_URI || 'mongodb://heroku_kz1q1qhs:ih7m2pjsoj9raj0kfcl17q7ita@ds041367.mlab.com:41367/heroku_kz1q1qhs';
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -21,8 +22,8 @@ AppModule = __decorate([
             books_module_1.BooksModule,
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'mongodb',
-                url: 'mongodb+srv://test_user_3000:XWw4h3Nvd6QR1ffn@testcluster-xa3oi.gcp.mongodb.net/test?retryWrites=true&w=majority',
-                database: 'TestDB',
+                url: DB_URL,
+                database: 'heroku_kz1q1qhs',
                 logging: true,
                 synchronize: true,
                 useNewUrlParser: true,

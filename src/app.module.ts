@@ -5,14 +5,16 @@ import { BooksModule } from './books/books.module';
 import { Book } from './books/books.entity';
 import { User } from './users/users.entity';
 
+const DB_URL = process.env.MONGODB_URI || 'mongodb://heroku_kz1q1qhs:ih7m2pjsoj9raj0kfcl17q7ita@ds041367.mlab.com:41367/heroku_kz1q1qhs';
+
 @Module({
   imports: [
     UsersModule,
     BooksModule,
     TypeOrmModule.forRoot({ // TypeOrm connection config
       type: 'mongodb',
-      url: 'mongodb+srv://test_user_3000:XWw4h3Nvd6QR1ffn@testcluster-xa3oi.gcp.mongodb.net/test?retryWrites=true&w=majority',
-      database: 'TestDB',
+      url: DB_URL,
+      database: 'heroku_kz1q1qhs',
       logging: true,
       synchronize: true,
       useNewUrlParser: true,
